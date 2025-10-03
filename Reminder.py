@@ -8,6 +8,7 @@ import pygame
 t = 0
 music = False
 
+
 def set():
     global t
     rem = sd.askstring('Время напоминания', 'введите время напоминания в формате ЧЧ:ММ (в 24)')
@@ -21,6 +22,7 @@ def set():
             print(dt)
             t = dt.timestamp()
             print(t)
+            label.config(text=f'напоминание на {hour:02}:{minute:02}')
         except Exception as e:
             mb.showerror('Ошибка', f'Произошла ошибка {e}')
 
@@ -49,6 +51,7 @@ def stop_music():
         pygame.mixer.music.stop()
         music = False
     label.config(text='Установить новое напоминание')
+
 
 window = Tk()
 window.title('Напоминание')
